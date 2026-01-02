@@ -10,7 +10,7 @@
             >ВОЗМОЖНОСТИ</span
           >
         </div>
-        <h2 class="text-5xl md:text-6xl font-black mb-6">
+        <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_70%,white)] to-[color-mix(in_srgb,var(--brand-to)_70%,white)]"
             >ИННОВАЦИОННЫЕ</span

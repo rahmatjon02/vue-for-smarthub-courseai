@@ -1,7 +1,7 @@
 <template>
   <section class="max-w-7xl mx-auto text-center relative py-24 px-6">
     <div
-      class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_10%,transparent)] to-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] mb-8 animate-float"
+      class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_10%,transparent)] to-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] mb-5 animate-float"
     >
       <div class="relative">
         <div
@@ -21,14 +21,12 @@
       class="text-3xl md:text-5xl lg:text-7xl font-black mb-6 leading-none tracking-tight"
     >
       <span
-        class="block text-transparent bg-clip-text bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_70%,white)] via-white 
-        to-[color-mix(in_srgb,var(--brand-to)_70%,white)] animate-shimmer bg-[length:200%_100%]"
+        class="block text-transparent bg-clip-text bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_70%,white)] via-white to-[color-mix(in_srgb,var(--brand-to)_70%,white)] animate-shimmer bg-[length:200%_100%]"
       >
         ИНТЕЛЛЕКТУАЛЬНОЕ
       </span>
       <span
-        class="block text-transparent bg-clip-text bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_70%,white)] via-white 
-        to-[color-mix(in_srgb,var(--brand-to)_70%,white)] animate-shimmer bg-[length:200%_100%] animation-delay-1000"
+        class="block text-transparent bg-clip-text bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_70%,white)] via-white to-[color-mix(in_srgb,var(--brand-to)_70%,white)] animate-shimmer bg-[length:200%_100%] animation-delay-1000"
       >
         СОЗДАНИЕ КУРСОВ
       </span>

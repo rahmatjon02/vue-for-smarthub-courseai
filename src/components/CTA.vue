@@ -1,7 +1,7 @@
 <template>
   <section class="relative py-20 px-6">
     <div class="max-w-5xl mx-auto">
-      <div class="relative p-12 md:p-20 rounded-3xl overflow-hidden">
+      <div class="relative p-8 md:p-20 rounded-3xl overflow-hidden">
         <div
           class="absolute inset-0 bg-gradient-to-br from-[var(--brand-from)] via-[color-mix(in_srgb,var(--brand-from)_80%,black)] to-[var(--brand-to)]"
         ></div>
@@ -26,7 +26,7 @@
             >
           </div>
 
-          <h2 class="text-4xl md:text-6xl font-black mb-6">
+          <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
             <span class="text-white">ГОТОВЫ К</span>
             <span
               class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-[color-mix(in_srgb,var(--brand-to)_70%,white)]"
@@ -40,7 +40,7 @@
           </p>
 
           <button
-            class="group px-10 py-5 rounded-xl font-bold text-lg bg-white text-[var(--brand-from)] hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/25 hover:scale-105"
+            class="group px-10 py-5 rounded-xl font-bold text-sm lg:text-lg bg-white text-[var(--brand-from)] hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/25 hover:scale-105"
           >
             <span class="flex items-center gap-2">
               НАЧАТЬ БЕСПЛАТНО

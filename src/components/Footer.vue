@@ -24,7 +24,9 @@
               </div>
             </div>
           </div>
-          <p class="text-gray-400 mb-6 leading-relaxed font-light max-w-md">
+          <p
+            class="text-gray-400 mb-6 leading-relaxed font-medium lg:font-light max-w-md"
+          >
             Мы создаем будущее образования с помощью искусственного интеллекта,
             предоставляя инструменты для создания исключительных образовательных
             материалов.
@@ -44,25 +46,27 @@
           </div>
         </div>
 
-        <div v-for="(col, i) in footerColumns" :key="i">
-          <h4 class="font-bold mb-4 text-gray-300">{{ col.title }}</h4>
-          <ul class="space-y-3">
-            <li v-for="link in col.links" :key="link">
-              <a
-                href="#"
-                class="text-gray-400 hover:text-white transition-colors duration-200 font-light"
-              >
-                {{ link }}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <div class="md:col-span-2 grid grid-cols-2">  
+          <div v-for="(col, i) in footerColumns" :key="i">
+            <h4 class="font-bold mb-4 text-gray-300">{{ col.title }}</h4>
+            <ul class="space-y-3">
+              <li v-for="link in col.links" :key="link">
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors duration-200 font-medium lg:font-light"
+                >
+                  {{ link }}
+                </a>
+              </li>
+            </ul>
+          </div>
+      </div>
       </div>
 
       <div
         class="pt-8 border-t border-gray-800/50 flex flex-wrap justify-between items-center gap-4 text-sm text-gray-500"
       >
-        <p class="font-light">
+        <p class="font-medium lg:font-light">
           © 2024 Coursebox. Все права защищены. |
           <a
             href="https://www.coursebox.ai/"
@@ -70,7 +74,7 @@
             >Coursebox</a
           >
         </p>
-        <div class="flex gap-6 font-light">
+        <div class="flex lg:flex-row flex-col gap-4 font-medium lg:font-light">
           <a href="#" class="hover:text-white transition-colors duration-200"
             >Политика конфиденциальности</a
           >
