@@ -44,7 +44,7 @@
     </p>
 
     <div class="flex flex-wrap justify-center gap-4 mb-16">
-      <button class="group relative px-8 py-4 rounded-xl font-bold text-lg">
+      <router-link to="/step-1" class="group relative px-8 py-4 rounded-xl font-bold text-lg">
         <div
           class="absolute inset-0 bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] rounded-xl"
         ></div>
@@ -61,7 +61,7 @@
             class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300"
           />
         </span>
-      </button>
+      </router-link>
 
       <button
         class="group relative px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-sm border border-gray-700 hover:border-[color-mix(in_srgb,var(--brand-from)_40%,transparent)] transition-all duration-300"
@@ -115,6 +115,7 @@
 </template>
 
 <script setup>
+import { useRouter } from "vue-router";
 import {
   ArrowRight,
   Download,
@@ -124,6 +125,8 @@ import {
   Star,
   Play,
 } from "lucide-vue-next";
+
+const router = useRouter();
 
 const stats = [
   {

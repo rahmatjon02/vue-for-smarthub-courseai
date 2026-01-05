@@ -1,7 +1,7 @@
 <template>
-  <section class="relative py-20 px-6">
+  <section class="relative py-12 md:py-20 px-4 md:px-6">
     <div class="max-w-5xl mx-auto">
-      <div class="relative p-8 md:p-20 rounded-3xl overflow-hidden">
+      <div class="relative p-6 md:p-8 lg:p-20 rounded-3xl overflow-hidden">
         <div
           class="absolute inset-0 bg-gradient-to-br from-[var(--brand-from)] via-[color-mix(in_srgb,var(--brand-from)_80%,black)] to-[var(--brand-to)]"
         ></div>
@@ -26,7 +26,7 @@
             >
           </div>
 
-          <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
+          <h2 class="text-2xl md:text-3xl lg:text-5xl xl:text-7xl font-black mb-4 md:mb-6">
             <span class="text-white">ГОТОВЫ К</span>
             <span
               class="block text-transparent bg-clip-text bg-gradient-to-r from-white to-[color-mix(in_srgb,var(--brand-to)_70%,white)]"
@@ -34,13 +34,14 @@
             >
           </h2>
 
-          <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto font-light">
+          <p class="text-base md:text-xl text-white/80 mb-6 md:mb-10 max-w-2xl mx-auto font-light px-2">
             Присоединяйтесь к сообществу инноваторов в образовании. Начните свой
             путь к созданию курсов будущего прямо сейчас.
           </p>
 
           <button
-            class="group px-10 py-5 rounded-xl font-bold text-sm lg:text-lg bg-white text-[var(--brand-from)] hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/25 hover:scale-105"
+            class="group px-6 md:px-10 py-3 md:py-5 rounded-xl font-bold text-sm lg:text-lg bg-white text-[var(--brand-from)] hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:shadow-white/25 hover:scale-105"
+            @click="router.push('/step-1')"
           >
             <span class="flex items-center gap-2">
               НАЧАТЬ БЕСПЛАТНО
@@ -51,7 +52,7 @@
           </button>
 
           <div
-            class="mt-12 flex flex-wrap justify-center gap-8 text-sm text-white/70"
+            class="mt-8 md:mt-12 flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm text-white/70"
           >
             <div class="flex items-center gap-2">
               <div class="w-2 h-2 bg-green-400 rounded-full"></div>
@@ -74,4 +75,6 @@
 
 <script setup>
 import { ArrowRight } from "lucide-vue-next";
+import { useRouter } from "vue-router";
+const router = useRouter();
 </script>

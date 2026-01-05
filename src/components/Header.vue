@@ -43,7 +43,8 @@
           </a>
         </nav>
 
-        <button
+        <router-link
+          to="/step-1"
           class="hidden md:flex relative group overflow-hidden px-6 py-3 rounded-xl font-semibold"
         >
           <div
@@ -53,7 +54,7 @@
             Начать бесплатно
             <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition" />
           </span>
-        </button>
+        </router-link>
 
         <button
           @click="open = true"
@@ -93,11 +94,13 @@
             </a>
           </nav>
 
-          <button
-            class="mt-10 w-full px-6 py-4 rounded-xl font-bold bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] text-white"
+          <router-link
+            to="/step-1"
+            @click="open = false"
+            class="mt-10 w-full px-6 py-4 rounded-xl font-bold bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] text-white text-center block"
           >
             Начать бесплатно
-          </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -105,8 +108,10 @@
 </template>
 <script setup>
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 import { ArrowRight, Menu, X } from "lucide-vue-next";
 
+const router = useRouter();
 const open = ref(false);
 
 const items = ["Возможности", "Процесс", "Цены"];

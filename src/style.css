@@ -89,3 +89,8 @@
 .animation-delay-1000 {
     animation-delay: 1s;
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
