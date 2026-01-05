@@ -28,8 +28,10 @@
 
         <nav class="hidden md:flex items-center gap-8">
           <a
-            v-for="item in ['Возможности', 'Процесс', 'Цены']"
-            :key="item"
+            v-for="item in navItems"
+            :key="item.id"
+            :href="`#${item.id}`"
+            @click="scrollToSection(item.id, $event)"
             class="relative group"
           >
             <div
@@ -38,7 +40,7 @@
             <span
               class="relative text-gray-300 hover:text-white transition-colors duration-200 px-3 py-2 rounded-lg backdrop-blur-sm border border-white/5 group-hover:border-[color-mix(in_srgb,var(--brand-from)_30%,transparent)]"
             >
-              {{ item }}
+              {{ item.label }}
             </span>
           </a>
         </nav>
@@ -84,13 +86,13 @@
 
           <nav class="flex flex-col gap-6">
             <a
-              v-for="item in items"
-              :key="item"
-              @click="open = false"
-              href="#"
-              class="text-xl text-gray-300 hover:text-white"
+              v-for="item in navItems"
+              :key="item.id"
+              :href="`#${item.id}`"
+              @click="scrollToSection(item.id, $event); open = false"
+              class="text-xl text-gray-300 hover:text-white transition-colors duration-200"
             >
-              {{ item }}
+              {{ item.label }}
             </a>
           </nav>
 
@@ -114,5 +116,26 @@ import { ArrowRight, Menu, X } from "lucide-vue-next";
 const router = useRouter();
 const open = ref(false);
 
-const items = ["Возможности", "Процесс", "Цены"];
+const navItems = [
+  { id: "features", label: "Возможности" },
+  { id: "process", label: "Процесс" },
+  { id: "preview", label: "Предпросмотр" },
+  { id: "pricing", label: "Цены" },
+  { id: "faq", label: "FAQ" },
+];
+
+const scrollToSection = (id, event) => {
+  event.preventDefault();
+  const element = document.getElementById(id);
+  if (element) {
+    const headerHeight = 20;
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
 </script>
