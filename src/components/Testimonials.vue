@@ -7,52 +7,64 @@
         >
           <span
             class="text-sm font-mono text-[color-mix(in_srgb,var(--brand-from)_70%,white)] tracking-wider"
-            >ОТЗЫВЫ</span
+            >ОТЗЫВЫ КЛИЕНТОВ</span
           >
         </div>
-        <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6 uppercase">
-          <span class="block">Любимо</span>
+        <h2 class="text-3xl md:text-5xl lg:text-7xl font-black mb-6">
+          <span class="text-white">Что говорят</span>
           <span
             class="block text-transparent bg-clip-text bg-gradient-to-r from-[color-mix(in_srgb,var(--brand-from)_70%,white)] to-[color-mix(in_srgb,var(--brand-to)_70%,white)]"
-            >создателями курсов</span
+            >наши пользователи</span
           >
         </h2>
         <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light">
-          Присоединяйтесь к тысячам преподавателей, которые изменили свое
-          преподавание с помощью Coursebox.
+          Реальные истории успеха от преподавателей и тренеров, которые используют нашу платформу для создания выдающихся курсов.
         </p>
       </div>
 
-      <div class="md:grid md:grid-cols-3 md:gap-8 flex gap-4 overflow-x-scroll scrollbar-hide">
+      <div class="grid md:grid-cols-3 gap-6">
         <div
           v-for="(testimonial, index) in testimonials"
           :key="index"
-          class="min-w-80 md:min-w-full bg-white/5 flex flex-col justify-between backdrop-blur-sm border border-white/10 rounded-2xl p-8 relative hover:border-[var(--brand-from)]/30 transition-all"
+          class="group relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-[var(--brand-from)]/40 transition-all duration-300 hover:scale-[1.02]"
         >
-          <div>
-            <span
-              class="absolute top-6 right-6 text-5xl text-[var(--brand-from)]/20 font-serif"
-              >"</span
-            >
-            <div class="flex gap-1 mb-4">
-              <span v-for="i in 5" :key="i" class="text-yellow-400 text-lg">
-                <Star class="w-4 h-4"
-              /></span>
+          <div class="absolute inset-0 bg-gradient-to-br from-[color-mix(in_srgb,var(--brand-from)_0%,transparent)] to-[color-mix(in_srgb,var(--brand-to)_0%,transparent)] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          
+          <div class="relative z-10 mb-6 pb-6 border-b border-white/10">
+            <div class="flex items-center gap-4 mb-4">
+              <div
+                class="w-16 h-16 bg-gradient-to-br from-[var(--brand-from)] to-[var(--brand-to)] rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg flex-shrink-0"
+              >
+                {{ testimonial.initials }}
+              </div>
+              <div class="flex-1">
+                <div class="font-bold text-white text-lg mb-1">{{ testimonial.name }}</div>
+                <div class="text-sm text-gray-400 mb-2">{{ testimonial.role }}</div>
+                <div class="flex gap-1">
+                  <span v-for="i in 5" :key="i" class="text-yellow-400">
+                    <Star class="w-4 h-4 fill-yellow-400" />
+                  </span>
+                </div>
+              </div>
             </div>
-            <p class="text-gray-300 mb-6 leading-relaxed relative z-10">
+          </div>
+
+          <div class="relative z-10">
+            <p class="text-gray-300 leading-relaxed relative z-10 text-base">
               "{{ testimonial.text }}"
             </p>
           </div>
 
-          <div class="flex items-center gap-4">
-            <div
-              class="w-12 h-12 bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] rounded-full flex items-center justify-center text-white font-bold text-lg"
-            >
-              {{ testimonial.initials }}
-            </div>
-            <div>
-              <div class="font-semibold text-white">{{ testimonial.name }}</div>
-              <div class="text-sm text-gray-400">{{ testimonial.role }}</div>
+          <div class="relative z-10 mt-6 pt-6 border-t border-white/10">
+            <div class="flex items-center justify-between text-sm">
+              <div>
+                <div class="text-xs text-gray-500 mb-1">Создано курсов</div>
+                <div class="font-bold text-[var(--brand-from)]">{{ testimonial.courses }}</div>
+              </div>
+              <div>
+                <div class="text-xs text-gray-500 mb-1">Студентов</div>
+                <div class="font-bold text-[var(--brand-to)]">{{ testimonial.students }}</div>
+              </div>
             </div>
           </div>
         </div>
@@ -66,22 +78,28 @@ import { Star } from "lucide-vue-next";
 
 const testimonials = [
   {
-    text: "Coursebox сократил время создания курса на 80%. То, что раньше занимало недели, теперь занимает часы. Контент, сгенерированный ИИ, удивительно хорош и требует лишь небольших корректировок.",
+    text: "Благодаря Coursebox я сократил время разработки образовательных программ почти в 5 раз. Инструменты искусственного интеллекта создают качественный контент, который требует минимальной правки.",
     name: "Сара Ким",
-    role: "Преподаватель науки о данных",
+    role: "Эксперт по Data Science",
     initials: "СК",
+    courses: 12,
+    students: "2.5K",
   },
   {
-    text: "Функция аналитики студентов помогла мне точно понять, где учащиеся испытывают трудности. Я улучшил процент завершения курса с 23% до 67% всего за 3 месяца.",
+    text: "Аналитические инструменты платформы позволили мне выявить проблемные зоны в обучении. Благодаря этому я смог повысить успеваемость учащихся более чем в два раза всего за квартал.",
     name: "Михаил Джонсон",
-    role: "Бизнес-коуч",
+    role: "Бизнес-тренер",
     initials: "МД",
+    courses: 8,
+    students: "1.8K",
   },
   {
-    text: "Как человек без технических знаний, я была поражена тем, насколько легко было создавать профессионально выглядящие курсы. Редактор с перетаскиванием невероятно интуитивен.",
+    text: "Не имея опыта в программировании, я смогла разработать профессиональные обучающие программы. Drag-and-drop редактор настолько прост, что с ним справится любой пользователь.",
     name: "Эмили Родригес",
-    role: "Маркетинговый консультант",
+    role: "Консультант по маркетингу",
     initials: "ЭР",
+    courses: 15,
+    students: "3.2K",
   },
 ];
 </script>

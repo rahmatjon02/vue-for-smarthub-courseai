@@ -67,7 +67,7 @@
       </div>
     </div>
 
-    <!-- MOBILE MENU -->
+ 
     <div
       class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity duration-300"
       :class="open ? 'opacity-100' : 'opacity-0 pointer-events-none'"
@@ -110,10 +110,8 @@
 </template>
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
 import { ArrowRight, Menu, X } from "lucide-vue-next";
 
-const router = useRouter();
 const open = ref(false);
 
 const navItems = [

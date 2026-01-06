@@ -6,146 +6,158 @@
     <ProgressSteps />
 
     <main class="max-w-7xl mx-auto px-4 md:px-6 pb-12">
-      <div
-        class="backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-4 md:p-8 mb-8"
-      >
-        <div class="mb-4 md:mb-8">
-          <h2 class="text-xl md:text-2xl font-bold text-white mb-2">Обзор и генерация</h2>
-          <p class="text-sm md:text-base text-gray-400">
-            Просмотрите детали вашего курса и сгенерируйте структуру курса.
-          </p>
-        </div>
+      <div class="mb-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Обзор и генерация</h2>
+        <p class="text-sm md:text-base text-gray-400">
+          Просмотрите детали вашего курса и сгенерируйте структуру курса.
+        </p>
+      </div>
 
-        <div class="mb-4 md:mb-8">
-          <div
-            class="text-base md:text-lg font-bold text-white mb-4 md:mb-5 pb-2 md:pb-3 border-b border-white/10"
-          >
-            Сводка курса
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-3 md:gap-4 md:gap-6">
-            <div class="text-sm text-gray-400">Название:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.title || "Введение в тестирование программного обеспечения" }}
+      <div class="space-y-6 mb-8">    
+        <div class="group relative p-4 sm:p-6 rounded-2xl backdrop-blur-sm bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-[color-mix(in_srgb,var(--brand-from)_30%,transparent)] transition-all duration-300">
+          <div class="absolute inset-0 bg-gradient-to-br from-[color-mix(in_srgb,var(--brand-from)_0%,transparent)] to-[color-mix(in_srgb,var(--brand-to)_0%,transparent)] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--brand-from)] to-[var(--brand-to)] flex items-center justify-center">
+                <FileText class="w-5 h-5 text-white" />
+              </div>
+              <div class="text-lg font-bold text-white">Сводка курса</div>
             </div>
-
-            <div class="text-sm text-gray-400">Тема:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.topic || "Тестирование программного обеспечения" }}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Название</div>
+                <div class="text-sm font-medium text-white">
+                  {{ courseSummary.title || "Введение в тестирование программного обеспечения" }}
+                </div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Тема</div>
+                <div class="text-sm font-medium text-white">
+                  {{ courseSummary.topic || "Тестирование программного обеспечения" }}
+                </div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Целевая аудитория</div>
+                <div class="text-sm font-medium text-white">
+                  {{ courseSummary.targetAudience || "Начинающие разработчики" }}
+                </div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Результаты обучения</div>
+                <div class="text-sm font-medium text-white">
+                  {{ courseSummary.learningOutcomes || "Понимание основ тестирования" }}
+                </div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Предварительные требования</div>
+                <div class="text-sm font-medium text-white">
+                  {{ courseSummary.prerequisites || "Базовые знания программирования" }}
+                </div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Основной язык</div>
+                <div class="text-sm font-medium text-white">
+                  {{ courseSummary.primaryLanguage || "Английский" }}
+                </div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Модули</div>
+                <div class="text-sm font-medium text-white">{{ courseSummary.modules || 3 }}</div>
+              </div>
+              <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                <div class="text-xs text-gray-500 mb-1">Уроков в модуле</div>
+                <div class="text-sm font-medium text-white">{{ courseSummary.lessonsPerModule || 3 }}</div>
+              </div>
+              <div class="p-3 bg-gradient-to-br from-[var(--brand-from)]/20 to-[var(--brand-to)]/20 rounded-xl border border-[var(--brand-from)]/30 md:col-span-2">
+                <div class="text-xs text-gray-400 mb-1">Всего уроков</div>
+                <div class="text-lg font-bold text-white">{{ courseSummary.totalLessons || 9 }}</div>
+              </div>
             </div>
-
-            <div class="text-sm text-gray-400">Целевая аудитория:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.targetAudience || "Начинающие разработчики" }}
-            </div>
-
-            <div class="text-sm text-gray-400">Результаты обучения:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{
-                courseSummary.learningOutcomes ||
-                "Понимание основ тестирования"
-              }}
-            </div>
-
-            <div class="text-sm text-gray-400">Предварительные требования:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.prerequisites || "Базовые знания программирования" }}
-            </div>
-
-            <div class="text-sm text-gray-400">Основной язык:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.primaryLanguage || "Английский" }}
-            </div>
-
-            <div class="text-sm text-gray-400">Модули:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.modules || 3 }}
-            </div>
-
-            <div class="text-sm text-gray-400">Уроков в модуле:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.lessonsPerModule || 3 }}
-            </div>
-
-            <div class="text-sm text-gray-400">Всего уроков:</div>
-            <div class="text-sm font-medium text-gray-300">
-              {{ courseSummary.totalLessons || 9 }}
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-white/5 border border-white/10 rounded-xl p-4 md:p-6 mb-4 md:mb-8">
-          <div class="text-base md:text-lg font-bold text-white mb-2">
-            Обзор качества курса
-          </div>
-          <div class="text-sm text-gray-400 mb-4 md:mb-5">
-            Пожалуйста, просмотрите и подтвердите следующие аспекты дизайна вашего курса.
-            Все поля обязательны для заполнения.
-          </div>
-
-          <div class="space-y-2 md:space-y-3">
-            <label
-              v-for="(item, index) in qualityChecks"
-              :key="index"
-              class="flex items-center gap-3 cursor-pointer"
-            >
-              <input
-                type="checkbox"
-                :id="`q${index + 1}`"
-                v-model="item.checked"
-                class="w-5 h-5 accent-[var(--brand-from)] bg-white/5 border-white/10 rounded"
-              />
-              <span class="text-sm text-gray-300">{{ item.label }}</span>
-            </label>
           </div>
         </div>
 
-        <div
-          class="bg-[color-mix(in_srgb,var(--brand-to)_5%,transparent)] border border-[color-mix(in_srgb,var(--brand-to)_20%,transparent)] rounded-xl p-4 md:p-6"
-        >
-          <div class="text-base md:text-lg font-bold text-[var(--brand-to)] mb-4 md:mb-5">
-            Сгенерированная структура курса
+        <div class="group relative p-4 sm:p-6 rounded-2xl backdrop-blur-sm bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 hover:border-[color-mix(in_srgb,var(--brand-from)_30%,transparent)] transition-all duration-300">
+          <div class="absolute inset-0 bg-gradient-to-br from-[color-mix(in_srgb,var(--brand-from)_0%,transparent)] to-[color-mix(in_srgb,var(--brand-to)_0%,transparent)] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--brand-from)] to-[var(--brand-to)] flex items-center justify-center">
+                <CheckCircle class="w-5 h-5 text-white" />
+              </div>
+              <div>
+                <div class="text-lg font-bold text-white">Обзор качества курса</div>
+                <p class="text-xs text-gray-500 mt-1">Все поля обязательны для заполнения</p>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <label
+                v-for="(item, index) in qualityChecks"
+                :key="index"
+                class="flex items-center gap-3 p-3 rounded-xl cursor-pointer transition-all bg-white/5 border border-white/10 hover:border-[color-mix(in_srgb,var(--brand-from)_30%,transparent)] has-[:checked]:border-[color-mix(in_srgb,var(--brand-from)_40%,transparent)] has-[:checked]:bg-[color-mix(in_srgb,var(--brand-from)_10%,transparent)]"
+              >
+                <input
+                  type="checkbox"
+                  :id="`q${index + 1}`"
+                  v-model="item.checked"
+                  class="w-5 h-5 accent-[var(--brand-from)] bg-white/5 border-white/10 rounded"
+                />
+                <span class="text-sm text-gray-300">{{ item.label }}</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative p-4 sm:p-6 rounded-2xl backdrop-blur-sm bg-gradient-to-br from-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] to-[color-mix(in_srgb,var(--brand-to)_5%,transparent)] border border-[color-mix(in_srgb,var(--brand-to)_30%,transparent)]">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[var(--brand-to)] to-[var(--brand-from)] flex items-center justify-center">
+              <Layers class="w-5 h-5 text-white" />
+            </div>
+            <div class="text-lg font-bold text-[var(--brand-to)]">Сгенерированная структура курса</div>
           </div>
 
-          <div
-            v-for="(module, moduleIndex) in courseStructure"
-            :key="moduleIndex"
-            class="bg-white/5 border border-white/10 rounded-lg p-3 md:p-4 mb-2 md:mb-3"
-          >
-            <div class="text-base font-semibold text-white mb-2">
-              Модуль {{ moduleIndex + 1 }}: {{ module.title }}
-            </div>
-            <div class="text-xs text-gray-400 mb-3">
-              {{ module.description }}
-            </div>
-
+          <div class="space-y-4">
             <div
-              v-for="(lesson, lessonIndex) in module.lessons"
-              :key="lessonIndex"
-              class="flex items-center gap-2 p-1.5 md:p-2 bg-white/5 rounded mb-1"
+              v-for="(module, moduleIndex) in courseStructure"
+              :key="moduleIndex"
+              class="p-4 bg-white/5 border border-white/10 rounded-xl hover:border-[color-mix(in_srgb,var(--brand-from)_30%,transparent)] transition-all"
             >
-              <span
-                class="w-1.5 h-1.5 bg-[var(--brand-from)] rounded-full"
-              ></span>
-              <span class="text-xs text-gray-400 flex-1">{{
-                lesson.title
-              }}</span>
-              <div class="flex gap-1">
-                <span
-                  v-for="type in lesson.contentTypes"
-                  :key="type"
-                  class="text-[10px] px-2 py-0.5 bg-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] text-[var(--brand-from)] rounded"
-                  >{{ type }}</span
+              <div class="flex items-start gap-2 sm:gap-3 mb-3">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[var(--brand-from)] to-[var(--brand-to)] flex items-center justify-center flex-shrink-0">
+                  <span class="text-[10px] sm:text-xs font-bold text-white">{{ moduleIndex + 1 }}</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <div class="text-sm sm:text-base font-semibold text-white break-words">
+                    Модуль {{ moduleIndex + 1 }}: {{ module.title }}
+                  </div>
+                  <div class="text-[11px] sm:text-xs text-gray-400 mt-1 break-words">{{ module.description }}</div>
+                </div>
+              </div>
+
+              <div class="space-y-2 pl-8 sm:pl-11">
+                <div
+                  v-for="(lesson, lessonIndex) in module.lessons"
+                  :key="lessonIndex"
+                  class="flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 bg-white/5 rounded-lg"
                 >
+                  <div class="w-1.5 h-1.5 bg-[var(--brand-from)] rounded-full flex-shrink-0"></div>
+                  <span class="text-[11px] sm:text-xs text-gray-300 flex-1 break-words">{{ lesson.title }}</span>
+                  <div class="flex gap-1 flex-shrink-0">
+                    <span
+                      v-for="type in lesson.contentTypes"
+                      :key="type"
+                      class="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 sm:py-1 bg-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] text-[var(--brand-from)] rounded"
+                    >{{ type }}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="flex justify-between md:flex-row flex-col gap-3">
+      <div class="flex justify-between flex-col sm:flex-row gap-3">
         <router-link
           to="/step-4"
-          class="group w-full md:w-1/4 flex justify-center relative px-8 py-4 rounded-xl font-bold md:text-lg text-base backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all"
+          class="group w-full sm:w-auto md:w-1/4 flex justify-center relative px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base md:text-lg backdrop-blur-sm border border-white/10 hover:border-white/20 transition-all"
         >
           <div
             class="absolute inset-0 bg-white/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
@@ -167,7 +179,7 @@
         <button
           type="button"
           @click="startGeneration"
-          class="group w-full md:w-1/4 flex justify-center relative px-8 py-4 rounded-xl font-bold md:text-lg text-base overflow-hidden bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] rounded-xl"
+          class="group w-full sm:w-auto md:w-1/4 flex justify-center relative px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base md:text-lg overflow-hidden bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)]"
         >
           <span class="relative flex items-center gap-2">
             Сгенерировать контент
@@ -188,25 +200,23 @@
       </div>
     </main>
 
-    <!-- Generating Modal -->
     <div
       :class="[
         'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all duration-300',
         showGeneratingModal ? 'opacity-100 visible' : 'opacity-0 invisible',
       ]"
     >
-      <div
-        :class="[
-          'bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl p-6 md:p-10 max-w-md w-[90%] h-[90vh] scrollbar-hide overflow-y-scroll text-center shadow-2xl transition-transform duration-300',
+          <div
+            :class="[
+              'bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl p-3 sm:p-4 md:p-6 max-w-md w-[95%] sm:w-[90%] max-h-[95vh] scrollbar-hide overflow-y-auto text-center shadow-2xl transition-transform duration-300',
           showGeneratingModal ? 'scale-100' : 'scale-90',
         ]"
       >
         <div
-          class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[var(--brand-from)] to-[var(--brand-to)] rounded-full flex items-center justify-center animate-pulse"
+          class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 md:mb-6 bg-gradient-to-br from-[var(--brand-from)] to-[var(--brand-to)] rounded-full flex items-center justify-center animate-pulse"
         >
           <svg
-            width="28"
-            height="28"
+            class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -217,41 +227,40 @@
             />
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-white mb-2">
+        <h3 class="text-base sm:text-lg md:text-xl font-bold text-white mb-1 sm:mb-2">
           Генерация вашего курса
         </h3>
-        <p class="text-gray-400 mb-8">
+        <p class="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 md:mb-8">
           Пожалуйста, подождите, пока мы создаем удивительный контент для вас
         </p>
 
-        <div class="mb-6">
-          <div class="flex justify-between mb-2">
-            <span class="text-sm text-gray-400">Прогресс</span>
-            <span class="text-sm font-semibold text-[var(--brand-from)]"
+        <div class="mb-3 sm:mb-4 md:mb-6">
+          <div class="flex justify-between mb-1.5 sm:mb-2">
+            <span class="text-xs sm:text-sm text-gray-400">Прогресс</span>
+            <span class="text-xs sm:text-sm font-semibold text-[var(--brand-from)]"
               >{{ progressPercent }}%</span
             >
           </div>
-          <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+          <div class="h-1.5 sm:h-2 bg-white/10 rounded-full overflow-hidden">
             <div
               class="h-full bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] rounded-full transition-all duration-500"
               :style="{ width: progressPercent + '%' }"
             ></div>
           </div>
-          <div class="text-xs text-gray-500 text-right mt-1">
+          <div class="text-[10px] sm:text-xs text-gray-500 text-right mt-0.5 sm:mt-1">
             {{ completedSteps }} из 4 шагов завершено
           </div>
         </div>
 
         <div
-          class="bg-[color-mix(in_srgb,var(--brand-from)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] rounded-lg p-4 mb-6"
+          class="bg-[color-mix(in_srgb,var(--brand-from)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] rounded-lg p-2.5 sm:p-3 md:p-4 mb-3 sm:mb-4 md:mb-6"
         >
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 sm:gap-3">
             <div
-              class="w-8 h-8 bg-[var(--brand-from)] rounded-full flex items-center justify-center"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-[var(--brand-from)] rounded-full flex items-center justify-center flex-shrink-0"
             >
               <svg
-                width="16"
-                height="16"
+                class="w-3 h-3 sm:w-4 sm:h-4"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -262,25 +271,25 @@
                 />
               </svg>
             </div>
-            <div class="text-left flex-1">
-              <div class="text-xs text-gray-500">Текущий шаг</div>
-              <div class="text-sm font-semibold text-white">
+            <div class="text-left flex-1 min-w-0">
+              <div class="text-[10px] sm:text-xs text-gray-500">Текущий шаг</div>
+              <div class="text-xs sm:text-sm font-semibold text-white break-words">
                 {{ currentStepName }}
               </div>
             </div>
           </div>
         </div>
 
-        <div class="text-left mb-6">
-          <div class="text-sm font-semibold text-gray-300 mb-3">
+        <div class="text-left mb-3 sm:mb-4 md:mb-6">
+          <div class="text-xs sm:text-sm font-semibold text-gray-300 mb-2 sm:mb-3">
             Шаги генерации
           </div>
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div
               v-for="(step, index) in generationSteps"
               :key="index"
               :class="[
-                'flex items-center gap-3 p-3 rounded-lg',
+                'flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 md:p-3 rounded-lg',
                 step.status === 'active'
                   ? 'bg-[color-mix(in_srgb,var(--brand-from)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-from)_30%,transparent)]'
                   : step.status === 'completed'
@@ -290,7 +299,7 @@
             >
               <div
                 :class="[
-                  'w-6 h-6 rounded-full flex items-center justify-center text-xs font-semibold',
+                  'w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-xs font-semibold flex-shrink-0',
                   step.status === 'active'
                     ? 'bg-[color-mix(in_srgb,var(--brand-from)_20%,transparent)] text-[var(--brand-from)]'
                     : step.status === 'completed'
@@ -300,8 +309,7 @@
               >
                 <svg
                   v-if="step.status === 'completed'"
-                  width="12"
-                  height="12"
+                  class="w-2.5 h-2.5 sm:w-3 sm:h-3"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -313,7 +321,7 @@
               </div>
               <span
                 :class="[
-                  'text-xs flex-1',
+                  'text-[10px] sm:text-xs flex-1 break-words',
                   step.status === 'active'
                     ? 'text-[var(--brand-from)] font-medium'
                     : step.status === 'completed'
@@ -324,21 +332,21 @@
               >
               <div
                 v-if="step.status === 'active'"
-                class="w-4 h-4 border-2 border-[var(--brand-from)] border-t-transparent rounded-full animate-spin"
+                class="w-3 h-3 sm:w-4 sm:h-4 border-2 border-[var(--brand-from)] border-t-transparent rounded-full animate-spin flex-shrink-0"
               ></div>
             </div>
           </div>
         </div>
 
         <div
-          class="flex items-center justify-center gap-2 text-xs text-gray-500"
+          class="flex items-center justify-center gap-1.5 sm:gap-2 text-[10px] sm:text-xs text-gray-500"
         >
           <svg
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
-            class="w-4 h-4"
+            class="w-3 h-3 sm:w-4 sm:h-4"
           >
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
@@ -347,26 +355,24 @@
         </div>
       </div>
     </div>
-
-    <!-- Success Modal -->
+    
     <div
       :class="[
         'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all duration-300',
         showSuccessModal ? 'opacity-100 visible' : 'opacity-0 invisible',
       ]"
     >
-      <div
-        :class="[
-          'bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl p-6 md:p-10 max-w-md w-[90%] h-[90vh] scrollbar-hide overflow-y-scroll text-center shadow-2xl transition-transform duration-300',
+          <div
+            :class="[
+              'bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-2xl p-3 sm:p-4 md:p-6 max-w-md w-[95%] sm:w-[90%] max-h-[95vh] scrollbar-hide overflow-y-auto text-center shadow-2xl transition-transform duration-300',
           showSuccessModal ? 'scale-100' : 'scale-90',
         ]"
       >
         <div
-          class="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[var(--brand-to)] to-[var(--brand-from)] rounded-full flex items-center justify-center"
+          class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-3 sm:mb-4 md:mb-6 bg-gradient-to-br from-[var(--brand-to)] to-[var(--brand-from)] rounded-full flex items-center justify-center"
         >
           <svg
-            width="28"
-            height="28"
+            class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -375,38 +381,37 @@
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </div>
-        <h3 class="text-xl font-bold text-[var(--brand-to)] mb-2">
+        <h3 class="text-base sm:text-lg md:text-xl font-bold text-[var(--brand-to)] mb-1 sm:mb-2">
           Курс успешно сгенерирован!
         </h3>
-        <p class="text-gray-400 mb-8">Ваш курс готов к изучению</p>
+        <p class="text-xs sm:text-sm text-gray-400 mb-4 sm:mb-6 md:mb-8">Ваш курс готов к изучению</p>
 
-        <div class="mb-6">
-          <div class="flex justify-between mb-2">
-            <span class="text-sm text-gray-400">Прогресс</span>
-            <span class="text-sm font-semibold text-[var(--brand-to)]"
+        <div class="mb-3 sm:mb-4 md:mb-6">
+          <div class="flex justify-between mb-1.5 sm:mb-2">
+            <span class="text-xs sm:text-sm text-gray-400">Прогресс</span>
+            <span class="text-xs sm:text-sm font-semibold text-[var(--brand-to)]"
               >100%</span
             >
           </div>
-          <div class="h-2 bg-white/10 rounded-full overflow-hidden">
+          <div class="h-1.5 sm:h-2 bg-white/10 rounded-full overflow-hidden">
             <div
               class="h-full bg-gradient-to-r from-[var(--brand-to)] to-[var(--brand-from)] rounded-full w-full"
             ></div>
           </div>
-          <div class="text-xs text-gray-500 text-right mt-1">
+          <div class="text-[10px] sm:text-xs text-gray-500 text-right mt-0.5 sm:mt-1">
             4 из 4 шагов завершено
           </div>
         </div>
 
         <div
-          class="bg-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-to)_20%,transparent)] rounded-lg p-4 mb-6"
+          class="bg-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-to)_20%,transparent)] rounded-lg p-2.5 sm:p-3 md:p-4 mb-3 sm:mb-4 md:mb-6"
         >
-          <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 sm:gap-3">
             <div
-              class="w-8 h-8 bg-[var(--brand-to)] rounded-full flex items-center justify-center"
+              class="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 bg-[var(--brand-to)] rounded-full flex items-center justify-center flex-shrink-0"
             >
               <svg
-                width="16"
-                height="16"
+                class="w-3 h-3 sm:w-4 sm:h-4"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -415,31 +420,30 @@
                 <polyline points="20 6 9 17 4 12"></polyline>
               </svg>
             </div>
-            <div class="text-left flex-1">
-              <div class="text-xs text-gray-500">Текущий шаг</div>
-              <div class="text-sm font-semibold text-white">
+            <div class="text-left flex-1 min-w-0">
+              <div class="text-[10px] sm:text-xs text-gray-500">Текущий шаг</div>
+              <div class="text-xs sm:text-sm font-semibold text-white break-words">
                 Генерация курса успешно завершена!
               </div>
             </div>
           </div>
         </div>
 
-        <div class="text-left mb-6">
-          <div class="text-sm font-semibold text-gray-300 mb-3">
+        <div class="text-left mb-3 sm:mb-4 md:mb-6">
+          <div class="text-xs sm:text-sm font-semibold text-gray-300 mb-2 sm:mb-3">
             Шаги генерации
           </div>
-          <div class="space-y-2">
+          <div class="space-y-1.5 sm:space-y-2">
             <div
               v-for="(step, index) in generationSteps"
               :key="index"
-              class="flex items-center gap-3 p-3 rounded-lg bg-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-to)_30%,transparent)]"
+              class="flex items-center gap-2 sm:gap-3 p-2 sm:p-2.5 md:p-3 rounded-lg bg-[color-mix(in_srgb,var(--brand-to)_10%,transparent)] border border-[color-mix(in_srgb,var(--brand-to)_30%,transparent)]"
             >
               <div
-                class="w-6 h-6 rounded-full flex items-center justify-center bg-[color-mix(in_srgb,var(--brand-to)_20%,transparent)] text-[var(--brand-to)]"
+                class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center bg-[color-mix(in_srgb,var(--brand-to)_20%,transparent)] text-[var(--brand-to)] flex-shrink-0"
               >
                 <svg
-                  width="12"
-                  height="12"
+                  class="w-2.5 h-2.5 sm:w-3 sm:h-3"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -448,7 +452,7 @@
                   <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
-              <span class="text-xs text-[var(--brand-to)] flex-1">{{
+              <span class="text-[10px] sm:text-xs text-[var(--brand-to)] flex-1 break-words">{{
                 step.name
               }}</span>
             </div>
@@ -456,11 +460,10 @@
         </div>
 
         <div
-          class="flex items-center justify-center gap-2 text-sm text-[var(--brand-to)] mb-6"
+          class="flex items-center justify-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-[var(--brand-to)] mb-3 sm:mb-4 md:mb-6"
         >
           <svg
-            width="16"
-            height="16"
+            class="w-3 h-3 sm:w-4 sm:h-4"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -473,7 +476,7 @@
 
         <router-link
           to="/"
-          class="block w-full px-8 py-4 rounded-xl font-bold text-lg bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] text-white hover:opacity-90 transition-opacity"
+          class="block w-full px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-lg bg-gradient-to-r from-[var(--brand-from)] to-[var(--brand-to)] text-white hover:opacity-90 transition-opacity"
         >
           <span class="flex items-center justify-center gap-2">
             <svg
@@ -497,6 +500,7 @@
 
 <script setup>
 import { ref } from "vue";
+import { FileText, CheckCircle, Layers } from "lucide-vue-next";
 import ProgressSteps from "../components/ProgressSteps.vue";
 import StepHeader from "../components/StepHeader.vue";
 
